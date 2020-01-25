@@ -1,4 +1,4 @@
 export {
-    default as Header
+    default as SearchResult
 }
-from "./Header"
+from "./SearchResult"
