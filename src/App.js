@@ -136,7 +136,7 @@ export default function App() {
 
   const handleSubmit = async () => {
       if (q !== '') {
-          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyCJmBx5P58PJ0keECGxwCJPO1TfheTGvIo`;
+          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=[API-KEY]`;
           const {data} = await axios.get(url);
           const {items} = data;
           setItems(items);
