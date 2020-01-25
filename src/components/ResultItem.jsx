@@ -1,26 +1,37 @@
 import React from "react";
 
-export default function ResultItem() {
+export default function ResultItem(props) {
+  const {video, index} = props;
+
+  let style = {}
+
+  if(index === 0) {
+    style = {
+      borderRadius: "120px"
+    }
+  }
+
   return (
     <div className="vedio">
-      <div className="thumbnail">
+      <div className="thumbnail" onClick={props.videoSelected}>
         <img
-          src="https://i.ytimg.com/vi/hI8TCA3fJcs/mqdefault.jpg"
-          alt="video thumbnail"
+          src={video.snippet.thumbnails.medium.url}
+          alt={video.snippet.title}
+          width={video.snippet.thumbnails.medium.width}
+          height={video.snippet.thumbnails.medium.height}
+          style={style}
         />
       </div>
       <div className="data">
         <p className="title">
-          Seriously - This American Life, Sara Bareilles, and Leslie Odom, Jr.
+          {video.snippet.title}
         </p>
         <p className="second-row">
-          <span className="channel">This American Life</span>
+          <span className="channel">{video.snippet.channelTitle}</span>
           <span className="data">2 years ago</span>
         </p>
         <p className="description">
-          This American Life asked Sara Bareilles to imagine what President
-          Obama might be thinking about the 2016 election and Donald Trump, but
-          can't say publicly.
+          {video.snippet.description}
         </p>
       </div>
     </div>
